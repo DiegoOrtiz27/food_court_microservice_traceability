@@ -31,4 +31,12 @@ public class MongoOrderTracingAdapter implements IOrderTracingPersistencePort {
                 .map(tracingEntityMapper::toOrderTraceModel)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<OrderTraceModel> findByRestaurantId(Long restaurantId) {
+        return orderTraceRepository.findByRestaurantId(restaurantId)
+                .stream()
+                .map(tracingEntityMapper::toOrderTraceModel)
+                .collect(Collectors.toList());
+    }
 }

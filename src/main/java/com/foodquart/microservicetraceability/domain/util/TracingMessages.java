@@ -5,7 +5,7 @@ public class TracingMessages {
     public static final String STATUS_REQUIRED = "Order status is required";
     public static final String CUSTOMER_ID_REQUIRED = "Customer ID is required";
 
-    private TracingMessages() {
+    TracingMessages() {
         throw new IllegalStateException("Utility class");
     }
 }

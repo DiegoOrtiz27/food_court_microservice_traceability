@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface IOrderTraceRepository extends MongoRepository<OrderTraceEntity, String> {
     List<OrderTraceEntity> findByCustomerIdAndOrderId(Long customerId, Long orderId);
+
+    List<OrderTraceEntity> findByRestaurantId(Long restaurantId);
 }
