@@ -5,7 +5,7 @@ public final class HttpMessages {
     public static final String UNKNOWN_FIELD = "Unknown field '%s' in request. Accepted fields: %s";
     public static final String UNEXPECTED_ERROR = "An unexpected error occurred";
 
-    private HttpMessages() {
+    HttpMessages() {
         throw new IllegalStateException("Utility class");
     }
 }

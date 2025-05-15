@@ -21,6 +21,7 @@ import static com.foodquart.microservicetraceability.domain.util.SecurityMessage
 @RequiredArgsConstructor
 public class SecurityConfig {
 
+    private static final String OWNER = "OWNER";
     private static final String CUSTOMER = "CUSTOMER";
     private static final String EMPLOYEE = "EMPLOYEE";
 
@@ -38,6 +39,7 @@ public class SecurityConfig {
                         ).permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/tracing/**").hasAnyRole(EMPLOYEE, CUSTOMER)
                         .requestMatchers(HttpMethod.GET, "/api/v1/tracing/customer/**").hasRole(CUSTOMER)
+                        .requestMatchers(HttpMethod.GET, "/api/v1/tracing/restaurant/**").hasRole(OWNER)
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
